@@ -7,10 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chibugan</title>
 
-    <!--custom Css Link-->
+
+    <!--swiperJs link-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+    <!--custom css Link-->
     <link rel="stylesheet" href="style.css">
 
-    <!--website Icon-->
+    <!--website icon-->
     <link rel="icon" href="/images/images/logo.jpg">
 
     <!--font awesome cdn link-->
@@ -38,21 +42,283 @@
 
         <div class="icons">
             <i class="fas fa-bars" id="menu-bars"></i>
-            <i class="fas fa-search" id="search"></i>
+            <i class="fas fa-search" id="search-icon"></i>
             <a href="#" class="fas fa-regular fa-cart-shopping"></a>
         </div>
 
     </header>
-    <!--header section end -->
+    <!--header section end here -->
+
+    <!--search form-->
+    <form action="" id="search-form">
+        <input type="search" placeholder="Search here..." name="" id="search-box">
+        <label for="search-box" class="fas fa-search"></label>
+        <i class="fas fa-times" id="close"></i>
+    </form>
+
+    <!-- home section starts here -->
+
+    <section class="home" id="home">
+        <div class="swiper-container home-slider">
+
+            <div class="swiper-wrapper wrapper">
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>our special dishes</span>
+                        <h3>spicy noodles</h3>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro neque accusamus cumque?</p>
+                        <a href="#" class="btn">Order Now</a>
+                    </div>
+                    <div class="image">
+                        <img src="/images/images/home-images/home-img-1.png" alt="">
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>our special dishes</span>
+                        <h3>roasted chicken</h3>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro neque accusamus cumque?</p>
+                        <a href="#" class="btn">Order Now</a>
+                    </div>
+                    <div class="image">
+                        <img src="/images/images/home-images/home-img-2.png" alt="">
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>our special dishes</span>
+                        <h3>hot pizza</h3>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro neque accusamus cumque?</p>
+                        <a href="#" class="btn">Order Now</a>
+                    </div>
+                    <div class="image">
+                        <img src="/images/images/home-images/home-img-3.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div> -->
+            <div class="swiper-pagination"></div>
+
+        </div>
+    </section>
+    <!-- home section ends here -->
+
+    <!-- dishes section starts -->
+    <section class="dishes" id="dishes">
+        <h3 class="sub-heading">our dishes</h3>
+        <h1 class="heading">popupar dishes</h1>
+        <!--BOX CONTAINER HERE-->
+        <div class="box-container">
+
+
+            <div class="box">
+                <div class="see-container">
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <img src="/images/images/dishes/dish-1.png" alt="">
+                <h3>hamburger</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span>15$.99</span>
+                <a href="#" class="btn1">add to cart</i></a>
+            </div>
+
+            <div class="box">
+                <div class="see-container">
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <img src="/images/images/dishes/dish-2.png" alt="">
+                <h3>chicken nuggets</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span>15$.99</span>
+                <a href="#" class="btn1">add to cart</a>
+            </div>
+
+            <div class="box">
+                <div class="see-container">
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <img src="/images/images/dishes/dish-6.png" alt="">
+                <h3>fried chicken</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span>15$.99</span>
+                <a href="#" class="btn1">add to cart</a>
+            </div>
+
+            <div class="box">
+                <div class="see-container">
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <img src="/images/images/dishes/dish-4.png" alt="">
+                <h3>hot pizza</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span>15$.99</span>
+                <a href="#" class="btn1">add to cart</a>
+            </div>
+
+            <div class="box">
+                <div class="see-container">
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <img src="/images/images/dishes/dish-3.png" alt="">
+                <h3>roasted chicken</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span>15$.99</span>
+                <a href="#" class="btn1">add to cart</a>
+            </div>
+
+            <div class="box">
+                <div class="see-container">
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <img src="/images/images/dishes/dish-5.png" alt="">
+                <h3>ice cream</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span>15$.99</span>
+                <a href="#" class="btn1">add to cart</a>
+            </div>
+
+        </div>
+    </section>
+    <!--dishes section ends here-->
 
 
 
 
 
+    <!-- about section starts -->
+    <section class="about" id="about">
+
+        <h3 class="sub-heading">about us</h3>
+
+        <h1 class="heading">why choose us</h1>
+
+        <div class="row">
+            <div class="image">
+                <img src="/images/images/about-img/about-img.png" alt="">
+            </div>
+
+            <div class="content">
+                <h3>best food in the country</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo odit rerum nihil architecto quia, in sint ratione ipsum qui debitis corporis animi vel maiores reiciendis dolorum! Nisi nulla deserunt cum!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet accusantium nostrum fugit a quam animi consequuntur nulla similique laboriosam qui?</p>
+
+                <div class="icons-container">
+                    <div class="icons">
+                        <i class="fas fa-shipping-fast"></i>
+                        <span>free delivery</span>
+                    </div>
+                    <div class="icons">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span>easy payment</span>
+                    </div>
+                    <div class="icons">
+                        <i class="fas fa-headset"></i>
+                        <span>24/7 serveice</span>
+                    </div>
+                </div>
+
+                <a href="#" class="btn">learn more</a>
+
+            </div>
+        </div>
+    </section>
+    <!-- about section starts -->
+
+
+
+
+    <!-- menu section starts -->
+
+    <!-- <section class="menu" id="menu"></section> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- menu section ends here -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- about section ends here -->
+
+    <!--swiper javascipt link-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
     <!--javascipt link-->
     <script src="app.js"></script>
-
 </body>
 
 </html>
