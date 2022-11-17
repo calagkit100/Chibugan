@@ -4,7 +4,7 @@
 
 /*color & shaow variables*/
 
- :root {
+:root {
     --orange: rgb(247, 133, 27);
     --green: #27ae60;
     --black: #000000;
@@ -276,6 +276,14 @@ section:nth-child(even) {
     padding: .5rem 3rem;
 }
 
+
+/*Button hover*/
+
+.btn:hover {
+    background: rgb(240, 150, 23);
+    letter-spacing: .1rem;
+}
+
 .btn1 {
     margin-top: 1rem;
     display: inline-block;
@@ -291,26 +299,6 @@ section:nth-child(even) {
 .btn1:hover {
     background: var(--orange);
     transform: scale(1.1);
-}
-
-
-/* .btn11 {
-    margin-top: 4rem;
-    display: inline-block;
-    font-size: 2rem;
-    color: white;
-    background: var(--green);
-    border-radius: .5rem;
-    cursor: pointer;
-    padding: .5rem 2rem;
-} */
-
-
-/*Button hover*/
-
-.btn:hover {
-    background: rgb(240, 150, 23);
-    letter-spacing: .1rem;
 }
 
 
@@ -482,6 +470,371 @@ section:nth-child(even) {
 }
 
 
+/* MENU style starts */
+
+.menu .box-container {
+    display: flex;
+    flex-wrap: wrap;
+    word-wrap: break-word;
+}
+
+.menu .box-container .box {
+    background: #fff;
+    border: .1rem solid rgba(0, 0, 0, .2);
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+}
+
+.menu .box-container .box .image {
+    height: 25rem;
+    width: 100%;
+    padding: 1.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.menu .box-container .box .image img {
+    height: 100%;
+    width: 100%;
+    border-radius: .5rem;
+}
+
+.menu .box-container .box .image .fa-heart {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    text-align: center;
+    font-size: 2rem;
+    background: #fff;
+    border-radius: 50%;
+    color: var(--black);
+}
+
+.menu .box-container .box .image .fa-heart:hover {
+    color: red;
+    background: #666;
+}
+
+.menu .box-container .box .content {
+    padding: 1.5rem;
+}
+
+.menu .box-container .box .content .stars {
+    padding-bottom: 1rem;
+}
+
+.menu .box-container .box .content .stars i {
+    font-size: 1.6rem;
+    color: yellow;
+}
+
+.menu .box-container .box .content h3 {
+    color: var(--black);
+    font-size: 2.5rem;
+}
+
+.menu .box-container .box .content p {
+    color: var(--black);
+    padding: .5rem 0;
+    line-height: 1;
+}
+
+.menu .box-container .box .content .price {
+    color: var(--orange);
+    margin-left: 1.5rem;
+    font-size: 2rem;
+}
+
+
+/* REVIEW styles starts */
+
+.review .slide {
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+    border: .1rem solid rgba(0, 0, 0, .2);
+    border-radius: .5rem;
+    position: relative;
+}
+
+.review .slide .fa-quote-right {
+    position: absolute;
+    top: 2rem;
+    right: 1rem;
+    font-size: 4rem;
+    color: #ccc;
+}
+
+.review .slide .user {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    padding-bottom: 1.5rem;
+}
+
+.review .slide .user img {
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.review .slide .user h3 {
+    color: var(--black);
+    font-size: 2rem;
+    padding-bottom: .5rem;
+}
+
+.review .slide .user i {
+    font-size: 1.3rem;
+    color: rgb(237, 237, 18);
+}
+
+.review .slide p {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: var(--light-color);
+}
+
+
+/* REVIEW style end */
+
+
+/* ORDER style starts */
+
+.order form {
+    max-width: 90rem;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    border: .1rem solid rgba(0, 0, 0, .2);
+    background: #eee;
+    padding: 1.5rem;
+    margin: 0 auto;
+}
+
+.order form .inputBox {
+    display: flex;
+    flex: wrap;
+    justify-content: space-between;
+}
+
+.order form .inputBox .input {
+    width: 49%;
+}
+
+.order form .inputBox .input span {
+    display: block;
+    padding: .5rem 0;
+    font-size: 1.5rem;
+    color: var(--light-color);
+}
+
+.order form .inputBox .input input,
+.order form .inputBox .input textarea {
+    background: #fff;
+    border-radius: .5rem;
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: var(--black);
+    text-transform: none;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.order form .inputBox .input input:focus,
+.order form .inputBox .input textarea:focus {
+    border: .1rem solid var(--orange);
+}
+
+.order form .inputBox .input textarea {
+    height: 20rem;
+    resize: none;
+}
+
+.order form .btn {
+    margin-top: 0;
+}
+
+.order form .order-btn {
+    text-align: center;
+}
+
+
+/* ORDER style end */
+
+
+/* FOOTER starts here */
+
+.footer {
+    background: #666;
+}
+
+.footer .box-container {
+    display: flex;
+    /* background: hsl(143, 50%, 16%); */
+    gap: 10rem;
+    padding: 1rem;
+}
+
+.footer .box-container .box {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer .box-container .box h3 {
+    font-size: 2rem;
+    padding: .5rem;
+    color: var(--orange);
+    font-weight: bold;
+}
+
+.footer .box-container .box a {
+    display: block;
+    color: var(--black);
+    line-height: 2rem;
+}
+
+.footer .credits {
+    text-align: center;
+    border-top: .1rem solid rgba(0, 0, 0, 0.904);
+    font-size: 1.5rem;
+    color: var(black);
+    padding: .5rem;
+    padding: top 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.footer .credits span {
+    color: var(--orange);
+}
+
+
+/* CART STYLE */
+
+.products {
+    height: 100vh;
+    width: 100%;
+    background: #666;
+}
+
+.products .content-container {
+    margin-top: 5rem;
+}
+
+.products .content-container .title-purchases {
+    padding: 2rem 0;
+}
+
+.products .content-container .title-purchases h1 {
+    color: white;
+    font-size: 3.5rem;
+}
+
+.products .content-container .item-list {
+    background: #27ae60;
+    display: flex;
+    flex: wrap;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+    padding: .5rem;
+}
+
+.products .content-container .item-list .product-image {
+    padding: 1rem;
+}
+
+.products .content-container .item-list .product-image img {
+    width: 20rem;
+}
+
+.products .content-container .item-list .title-discription {
+    padding: 1rem;
+}
+
+.products .content-container .item-list .title-discription h1 {
+    color: rgb(61, 34, 1);
+    font-size: 2.5rem;
+}
+
+.products .content-container .item-list .title-discription p {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.products .content-container .item-list .price-cart {
+    padding: 1.5rem;
+    background: #666;
+    border-radius: 50%;
+}
+
+.products .content-container .item-list .price-cart h3 {
+    color: white;
+    font-size: 2rem;
+}
+
+.products .content-container .item-list .field1 {
+    width: 15%;
+    display: flex;
+    gap: 1rem;
+}
+
+.products .content-container .item-list .field1 .add {
+    background-color: #27ae60;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    padding: .5rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.products .content-container .item-list .field1 input {
+    width: 20%;
+    font-size: 1.8rem;
+}
+
+.products .content-container .item-list .field1 .sub {
+    background-color: #27ae60;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    padding: .5rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.products .content-container .item-list .field1 .add:hover,
+.products .content-container .item-list .field1 .sub:hover {
+    background: #18c660;
+}
+
+.products .content-container .item-list .uncart-container i {
+    font-size: 2rem;
+    color: var(--light-color);
+    cursor: pointer;
+}
+
+.products .content-container .item-list .uncart-container i:hover {
+    color: rgb(223, 9, 9);
+}
+
+
+/* FOOTER ends here */
+
+
+/* SHOPPING CART CONTAINER STYLE */
+
+
 /* media queries */
 
 @media (max-width: 991px) {
@@ -530,12 +883,15 @@ section:nth-child(even) {
     }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 450px) {
     html {
         font-size: 50%;
     }
     .dishes .box-container .box img {
         height: auto;
+        width: 100%;
+    }
+    .order form .inputBox .input {
         width: 100%;
     }
 }
