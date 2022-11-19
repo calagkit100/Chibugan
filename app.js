@@ -46,7 +46,7 @@ cartDown.onclick = () => {
 //SLIDER
 
 var swiper = new Swiper(".home-slider", {
-    spaceBetween: 150,
+    spaceBetween: 140,
     centeredSlides: true,
     autoplay: {
         delay: 7000,
@@ -155,12 +155,7 @@ function renderProducts() {
 
 renderProducts();
 
-//Cart Array
-let cart = JSON.parse(localStorage.getItem("CART"));
-
-updateCart();
-
-//ADD TO CART
+//ADD ITEMS TO CART
 function addToCart(id) {
 
     //check if product already exist in array
@@ -179,7 +174,17 @@ function addToCart(id) {
 
 }
 
-//update cart
+//REMOVE ITEMS FROM CART
+
+function removeItemFromCart(id) {
+    cart = cart.filter((item) => item.id !== id);
+
+    updateCart();
+}
+
+
+
+//UPDATE CART FUNCTION
 
 function updateCart() {
     renderCartItems();
@@ -189,26 +194,13 @@ function updateCart() {
     localStorage.setItem("CART", JSON.stringify(cart));
 }
 
+//CART ARRAY
+let cart = JSON.parse(localStorage.getItem("CART"));
 
-//calculate and render subtotal
-
-function renderSubtotal() {
-    let totalPrice = 0,
-        totalItems = 0;
-
-    cart.forEach((item) => {
-        totalPrice += item.price * item.numberOfUnits;
-        totalItems += item.numberOfUnits;
-    });
-
-    subTotalEl.innerHTML = `<div class="title-purchases" id="title-purchases">
-    <h1>Subtotal(${totalItems} items): PHP ${totalPrice.toFixed(2)}</h1>
-</div>`;
-    totalItemsInCartEl.innerHTML = `<p>${totalItems}</p>`;
-};
+updateCart();
 
 
-//render cart items
+//RENDER CART ITEMS
 
 function renderCartItems() {
     //clear cart duplicate element
@@ -239,16 +231,24 @@ function renderCartItems() {
     });
 };
 
-//Remove items from cart
+//RENDER SUBTOTAL AND CALCULATE 
 
-function removeItemFromCart(id) {
-    cart = cart.filter((item) => item.id !== id);
+function renderSubtotal() {
+    let totalPrice = 0,
+        totalItems = 0;
 
-    updateCart();
-}
+    cart.forEach((item) => {
+        totalPrice += item.price * item.numberOfUnits;
+        totalItems += item.numberOfUnits;
+    });
 
+    subTotalEl.innerHTML = `<div class="title-purchases" id="title-purchases">
+    <h1>Subtotal(${totalItems} items): PHP ${totalPrice.toFixed(2)}</h1>
+</div>`;
+    totalItemsInCartEl.innerHTML = `<p>${totalItems}</p>`;
+};
 
-//change number of units for an item
+//CHANGE NUMBER OF UNITS
 
 function changeNumberofUnits(action, id) {
     cart = cart.map((item) => {

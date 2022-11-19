@@ -212,6 +212,10 @@ section:nth-child(even) {
 
 /*parent container*/
 
+.home .home-slider {
+    width: 100%;
+}
+
 .home .home-slider .slide {
     display: flex;
     align-items: center;
@@ -591,13 +595,17 @@ span.ripple {
 
 /* REVIEW styles starts */
 
+.review {
+    padding: 0 0 7rem 0;
+}
+
 .review .slide {
-    padding: 2rem;
+    padding: 4rem;
     box-shadow: var(--box-shadow);
     border: .1rem solid rgba(50, 231, 26, 0.2);
     border-radius: .5rem;
     position: relative;
-    background: rgba(238, 238, 238, 0.637);
+    background: rgba(224, 215, 215, 0.637);
 }
 
 .review .slide .fa-quote-right {
