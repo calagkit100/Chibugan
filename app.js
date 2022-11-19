@@ -117,12 +117,6 @@ for (const button of buttons) {
 
 
 
-
-
-
-
-
-
 // ADD ITEMS IN CART FUNCTIONS --------------------------
 
 
@@ -191,10 +185,18 @@ function updateCart() {
     renderSubtotal();
 
     //Save cart item to local storage
+    let todos;
+
+    if (localStorage.getItem("todos") === null) {
+        todos = [];
+    } else {
+        todos.JSON.parse(localStorage.getItem("CART"));
+    }
+    todos.push(cart);
     localStorage.setItem("CART", JSON.stringify(cart));
 }
 
-//CART ARRAY
+//CART ARRAY    
 let cart = JSON.parse(localStorage.getItem("CART"));
 
 updateCart();
