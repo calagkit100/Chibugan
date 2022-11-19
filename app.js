@@ -22,7 +22,7 @@ let searchIcon = document.querySelector('#search-form');
 
 searchIcon.onclick = () => {
     searchIcon.classList.toggle("active");
-    console.log(searchIcon);
+    // console.log(searchIcon);
 }
 
 
