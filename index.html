@@ -29,7 +29,7 @@
 
     <!--header section starts -->
     <header>
-        <a href="#" class="logo"><i class="fas fa-utensils"></i> Chibugan</a>
+        <a href="#home" class="logo"><i class="fas fa-utensils"></i> Chibugan</a>
 
         <nav class="navbar">
             <ul>
@@ -43,11 +43,19 @@
         </nav>
 
         <div class="icons">
-            <i class="fas fa-bars" id="menu-bars"></i>
-            <i class="fas fa-search" id="search-icon"></i>
-            <a href="#" class="fas fa-regular fa-cart-shopping"></a>
+            <div class="menu-container">
+                <i class="fas fa-bars" id="menu-bars"></i>
+            </div>
+            <div class="search-container">
+                <i class="fas fa-search" id="search-form"></i>
+            </div>
+            <div class="cart-down-container">
+                <a href="#dish" class="fas fa-regular fa-cart-shopping" id="cart-down"></a>
+                <div class="cart-items-down-container">
+                    <p>0</p>
+                </div>
+            </div>
         </div>
-
     </header>
     <!--header section end here -->
 
@@ -61,6 +69,35 @@
 
     <!-- NAVIGATION ENDS HERE -->
 
+    <!-- CART CONTAINER -->
+    <section class="products" id="products">
+
+        <div class="content-container">
+
+            <div class="title-purchases">
+                <h1>your purchases</h1>
+            </div>
+
+            <div class="title-purchases" id="title-purchases">
+                <h1>subtotal(0 items): PHP 0 </h1>
+            </div>
+
+            <div class="payment-method">
+                <a href="#">proceed to payment</a>
+            </div>
+
+            <div class="payment-method">
+                <a href="#dishes">continue shopping</a>
+            </div>
+
+
+            <div class="item-list">
+                <!-- RENDER CART ITEMS HERE -->
+            </div>
+
+        </div>
+    </section>
+    <!-- CART CONTAINER -->
 
     <!-- CONTENT STARTS HERE -->
 
@@ -75,7 +112,7 @@
                         <span>our special dishes</span>
                         <h3>spicy noodles</h3>
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro neque accusamus cumque?</p>
-                        <a href="#" class="btn">Order Now</a>
+                        <button>order now</button>
                     </div>
                     <div class="image">
                         <img src="/images/images/home-images/home-img-1.png" alt="">
@@ -87,7 +124,7 @@
                         <span>our special dishes</span>
                         <h3>roasted chicken</h3>
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro neque accusamus cumque?</p>
-                        <a href="#" class="btn">Order Now</a>
+                        <button>order now</button>
                     </div>
                     <div class="image">
                         <img src="/images/images/home-images/home-img-2.png" alt="">
@@ -99,7 +136,7 @@
                         <span>our special dishes</span>
                         <h3>hot pizza</h3>
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro neque accusamus cumque?</p>
-                        <a href="#" class="btn">Order Now</a>
+                        <button>order now</button>
                     </div>
                     <div class="image">
                         <img src="/images/images/home-images/home-img-3.png" alt="">
@@ -108,7 +145,7 @@
             </div>
             <!-- <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div> -->
-            <div class="swiper-pagination"></div>
+            <!-- <div class="swiper-pagination"></div> -->
 
         </div>
     </section>
@@ -120,11 +157,13 @@
     <section class="dishes" id="dishes">
         <h3 class="sub-heading">our dishes</h3>
         <h1 class="heading">popupar dishes</h1>
+
         <!--BOX CONTAINER HERE-->
         <div class="box-container">
 
+            <!-- RENDER ITEMS HERE -->
 
-            <div class="box">
+            <!-- <div class="box">
                 <div class="see-container">
                     <a href="#" class="fas fa-heart"></a>
                     <a href="#" class="fas fa-eye"></a>
@@ -138,101 +177,11 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <span>15$.99</span>
-                <a href="#" class="btn1">add to cart</i></a>
-            </div>
-
-            <div class="box">
-                <div class="see-container">
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <img src="/images/images/dishes/dish-2.png" alt="">
-                <h3>chicken nuggets</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <span>15$.99</span>
-                <a href="#" class="btn1">add to cart</a>
-            </div>
-
-            <div class="box">
-                <div class="see-container">
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <img src="/images/images/dishes/dish-6.png" alt="">
-                <h3>fried chicken</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <span>15$.99</span>
-                <a href="#" class="btn1">add to cart</a>
-            </div>
-
-            <div class="box">
-                <div class="see-container">
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <img src="/images/images/dishes/dish-4.png" alt="">
-                <h3>hot pizza</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <span>15$.99</span>
-                <a href="#" class="btn1">add to cart</a>
-            </div>
-
-            <div class="box">
-                <div class="see-container">
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <img src="/images/images/dishes/dish-3.png" alt="">
-                <h3>roasted chicken</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <span>15$.99</span>
-                <a href="#" class="btn1">add to cart</a>
-            </div>
-
-            <div class="box">
-                <div class="see-container">
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <img src="/images/images/dishes/dish-5.png" alt="">
-                <h3>ice cream</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <span>15$.99</span>
-                <a href="#" class="btn1">add to cart</a>
-            </div>
-
+                <span>PHP 65</span>
+                <a href="#dishes" class="btn1" id="btnDish1">add to cart</i></a>
+            </div> -->
         </div>
+
     </section>
     <!--DISHES section ends here-->
 
@@ -717,7 +666,10 @@
     <!--swiper javascipt link-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
-    <!--javascipt link-->
+    <!-- objects javascript link -->
+    <script src="products.js"></script>
+
+    <!--app.js javascipt link-->
     <script src="app.js"></script>
 
 
