@@ -2,8 +2,26 @@
 
 //Hamburger id
 let menu = document.querySelector("#menu-bars");
+
 // Classlist link container
 let navbar = document.querySelector(".navbar");
+
+//search variables
+let searchIcon = document.querySelector('#search-form');
+
+//CART DOWN VARIABLES
+let cartDown = document.querySelector("#cart-down");
+let productDown = document.querySelector("#products");
+
+//SELECT ELEMENTS
+const productEl = document.querySelector(".products");
+const dishesEl = document.querySelector(".box-container");
+const itemListEl = document.querySelector(".item-list");
+const subTotalEl = document.querySelector('#title-purchases');
+const totalItemsInCartEl = document.querySelector(".cart-items-down-container");
+
+
+
 
 menu.onclick = () => {
     menu.classList.toggle("fa-times");
@@ -15,21 +33,10 @@ menu.onscroll = () => {
     navbar.classList.remove("active");
 }
 
-//search variables
-let searchIcon = document.querySelector('#search-form');
-
-
-
 searchIcon.onclick = () => {
     searchIcon.classList.toggle("active");
     // console.log(searchIcon);
 }
-
-
-//CART DOWN
-
-let cartDown = document.querySelector("#cart-down");
-let productDown = document.querySelector("#products")
 
 cartDown.onclick = () => {
     productDown.classList.toggle("active")
@@ -80,43 +87,46 @@ var swiper = new Swiper(".review-slider", {
     },
 });
 
-//SCROLL BEHAVIOUR
-// $(document).ready(function() {
-//     // Add smooth scrolling to all links
-//     $("a").on('click', function(event) {
+//BUTTON RIPPLE
 
-//         // Make sure this.hash has a value before overriding default behavior
-//         if (this.hash !== "") {
-//             // Prevent default anchor click behavior
-//             event.preventDefault();
+function createRipple(event) {
+    const button = event.currentTarget;
 
-//             // Store hash
-//             var hash = this.hash;
+    const circle = document.createElement("span");
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
 
-//             // Using jQuery's animate() method to add smooth page scroll
-//             // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-//             $('html, body').animate({
-//                 scrollTop: $(hash).offset().top
-//             }, 500, function() {
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+    circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+    circle.classList.add("ripple");
 
-//                 // Add hash (#) to URL when done scrolling (default click behavior)
-//                 window.location.hash = hash;
-//             });
-//         } // End if
-//     });
-// });
+    const ripple = button.getElementsByClassName("ripple")[0];
+
+    if (ripple) {
+        ripple.remove();
+    };
+
+    button.appendChild(circle);
+};
+
+const buttons = document.getElementsByTagName("button");
+for (const button of buttons) {
+    button.addEventListener("click", createRipple);
+};
 
 
-// ADD ITEMS IN CART FUNCTIONS
 
-//SELECT ELEMENTS
-const productEl = document.querySelector(".products");
-const dishesEl = document.querySelector(".box-container")
-const itemListEl = document.querySelector(".item-list")
-const subTotalEl = document.querySelector('#title-purchases')
-const totalItemsInCartEl = document.querySelector(".cart-items-down-container")
 
-//RENDER PRODUCST
+
+
+
+
+
+// ADD ITEMS IN CART FUNCTIONS --------------------------
+
+
+//RENDER PRODUCTS
 
 function renderProducts() {
 
@@ -147,6 +157,7 @@ renderProducts();
 
 //Cart Array
 let cart = JSON.parse(localStorage.getItem("CART"));
+
 updateCart();
 
 //ADD TO CART
@@ -197,12 +208,6 @@ function renderSubtotal() {
 };
 
 
-
-
-
-
-
-
 //render cart items
 
 function renderCartItems() {
@@ -243,7 +248,6 @@ function removeItemFromCart(id) {
 }
 
 
-
 //change number of units for an item
 
 function changeNumberofUnits(action, id) {
@@ -256,8 +260,8 @@ function changeNumberofUnits(action, id) {
                 numberOfUnits--;
             } else if (action === "plus" && numberOfUnits < item.instock) {
                 numberOfUnits++;
-            }
-        }
+            };
+        };
 
         return {
             ...item,
@@ -267,31 +271,3 @@ function changeNumberofUnits(action, id) {
 
     updateCart();
 };
-
-//BUTTON RIPPLE
-
-function createRipple(event) {
-    const button = event.currentTarget;
-
-    const circle = document.createElement("span");
-    const diameter = Math.max(button.clientWidth, button.clientHeight);
-    const radius = diameter / 2;
-
-    circle.style.width = circle.style.height = `${diameter}px`;
-    circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
-    circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
-    circle.classList.add("ripple");
-
-    const ripple = button.getElementsByClassName("ripple")[0];
-
-    if (ripple) {
-        ripple.remove();
-    }
-
-    button.appendChild(circle);
-}
-
-const buttons = document.getElementsByTagName("button");
-for (const button of buttons) {
-    button.addEventListener("click", createRipple);
-}
