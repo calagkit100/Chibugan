@@ -181,22 +181,21 @@ function removeItemFromCart(id) {
 //UPDATE CART FUNCTION
 
 function updateCart() {
-    renderCartItems();
-    renderSubtotal();
-
-    //Save cart item to local storage
+    //Check if there is already have key and value
     let todos;
 
     if (localStorage.getItem("todos") === null) {
         todos = [];
     } else {
-        todos.JSON.parse(localStorage.getItem("CART"));
+        //Save cart item to local storage
+        todos = JSON.parse(localStorage.setItem("CART", JSON.stringify(cart)));
     }
-    todos.push(cart);
-    localStorage.setItem("CART", JSON.stringify(cart));
+
+    renderCartItems();
+    renderSubtotal();
 }
 
-//CART ARRAY    
+//CART ARRAY
 let cart = JSON.parse(localStorage.getItem("CART"));
 
 updateCart();

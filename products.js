@@ -1,6 +1,6 @@
 const products = [{
         id: 0,
-        name: "hamburger",
+        name: "premium burger",
         instock: 1000,
         price: 65,
         imgSrc: "/images/images/dishes/dish-1.png",
