@@ -1,4 +1,4 @@
-//variables
+//VARIABLES
 
 //Hamburger id
 let menu = document.querySelector("#menu-bars");
@@ -6,8 +6,8 @@ let menu = document.querySelector("#menu-bars");
 // Classlist link container
 let navbar = document.querySelector(".navbar");
 
-//search variables
-let searchIcon = document.querySelector('#search-form');
+//Search variables
+let searchIcon = document.querySelector("#search-form");
 
 //CART DOWN VARIABLES
 let cartDown = document.querySelector("#cart-down");
@@ -17,115 +17,108 @@ let productDown = document.querySelector("#products");
 const productEl = document.querySelector(".products");
 const dishesEl = document.querySelector(".box-container");
 const itemListEl = document.querySelector(".item-list");
-const subTotalEl = document.querySelector('#title-purchases');
+const subTotalEl = document.querySelector("#title-purchases");
 const totalItemsInCartEl = document.querySelector(".cart-items-down-container");
 
-
-
-
 menu.onclick = () => {
-    menu.classList.toggle("fa-times");
-    navbar.classList.toggle("active");
-}
+  menu.classList.toggle("fa-times");
+  navbar.classList.toggle("active");
+};
 
 menu.onscroll = () => {
-    menu.classList.remove("fa-times");
-    navbar.classList.remove("active");
-}
+  menu.classList.remove("fa-times");
+  navbar.classList.remove("active");
+};
 
 searchIcon.onclick = () => {
-    searchIcon.classList.toggle("active");
-    // console.log(searchIcon);
-}
+  searchIcon.classList.toggle("active");
+  // console.log(searchIcon);
+};
 
 cartDown.onclick = () => {
-    productDown.classList.toggle("active")
-    cartDown.classList.toggle("fa-times")
-}
+  productDown.classList.toggle("active");
+  cartDown.classList.toggle("fa-times");
+};
 
 //SLIDER
 
 var swiper = new Swiper(".home-slider", {
-    spaceBetween: 140,
-    centeredSlides: true,
-    autoplay: {
-        delay: 7000,
-        disableOnInteraction: false,
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    loop: true,
+  spaceBetween: 140,
+  centeredSlides: true,
+  autoplay: {
+    delay: 7000,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  loop: true,
 });
 
 var swiper = new Swiper(".review-slider", {
-    spaceBetween: 140,
-    centeredSlides: true,
-    autoplay: {
-        delay: 7000,
-        disableOnInteraction: false,
+  spaceBetween: 140,
+  centeredSlides: true,
+  autoplay: {
+    delay: 7000,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  loop: true,
+  breakpoints: {
+    0: {
+      slidePerView: 1,
     },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
+    640: {
+      slidesPerView: 2,
     },
-    loop: true,
-    breakpoints: {
-        0: {
-            slidePerView: 1,
-        },
-        640: {
-            slidesPerView: 2,
-        },
-        768: {
-            slidesPerView: 2,
-        },
-        1024: {
-            slidesPerView: 3,
-        },
+    768: {
+      slidesPerView: 2,
     },
+    1024: {
+      slidesPerView: 3,
+    },
+  },
 });
 
 //BUTTON RIPPLE
 
 function createRipple(event) {
-    const button = event.currentTarget;
+  const button = event.currentTarget;
 
-    const circle = document.createElement("span");
-    const diameter = Math.max(button.clientWidth, button.clientHeight);
-    const radius = diameter / 2;
+  const circle = document.createElement("span");
+  const diameter = Math.max(button.clientWidth, button.clientHeight);
+  const radius = diameter / 2;
 
-    circle.style.width = circle.style.height = `${diameter}px`;
-    circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
-    circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
-    circle.classList.add("ripple");
+  circle.style.width = circle.style.height = `${diameter}px`;
+  circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+  circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+  circle.classList.add("ripple");
 
-    const ripple = button.getElementsByClassName("ripple")[0];
+  const ripple = button.getElementsByClassName("ripple")[0];
 
-    if (ripple) {
-        ripple.remove();
-    };
+  if (ripple) {
+    ripple.remove();
+  }
 
-    button.appendChild(circle);
-};
+  button.appendChild(circle);
+}
 
 const buttons = document.getElementsByTagName("button");
 for (const button of buttons) {
-    button.addEventListener("click", createRipple);
-};
-
-
+  button.addEventListener("click", createRipple);
+}
 
 // ADD ITEMS IN CART FUNCTIONS --------------------------
-
 
 //RENDER PRODUCTS
 
 function renderProducts() {
-
-    products.forEach((product) => {
-        dishesEl.innerHTML += `
+  products.forEach((product) => {
+    dishesEl.innerHTML += `
         <div class="box">
                 <div class="see-container">
                     <a href="#" class="fas fa-heart"></a>
@@ -144,71 +137,61 @@ function renderProducts() {
                 <a href="#dishes" class="btn1" onclick="addToCart(${product.id})">add to cart</i></a>
             </div>
         `;
-    });
-};
-
+  });
+}
 renderProducts();
 
-//ADD ITEMS TO CART
-function addToCart(id) {
-
-    //check if product already exist in array
-    if (cart.some((item) => item.id === id)) {
-        changeNumberofUnits("plus", id)
-    } else {
-        const item = products.find((product) => product.id === id)
-
-        cart.push({
-            ...item,
-            numberOfUnits: 1
-        });
-    }
-
-    updateCart();
-
-}
-
-//REMOVE ITEMS FROM CART
-
-function removeItemFromCart(id) {
-    cart = cart.filter((item) => item.id !== id);
-
-    updateCart();
-}
-
-
-
-//UPDATE CART FUNCTION
-
-function updateCart() {
-    //Check if there is already have key and value
-    let todos;
-
-    if (localStorage.getItem("todos") === null) {
-        todos = [];
-    } else {
-        //Save cart item to local storage
-        todos = JSON.parse(localStorage.setItem("CART", JSON.stringify(cart)));
-    }
-
-    renderCartItems();
-    renderSubtotal();
-}
-
-//CART ARRAY
-let cart = JSON.parse(localStorage.getItem("CART"));
-
+//cart array
+let cart = JSON.parse(localStorage.getItem("CART")) || [];
 updateCart();
 
+function addToCart(id) {
+  //check if product already exist in cart/array
+  if (cart.some((item) => item.id === id)) {
+    alert("Product already in cart!");
+  } else {
+    const item = products.find((product) => product.id === id);
 
-//RENDER CART ITEMS
+    cart.push({
+      ...item,
+      numberOfUnits: 1,
+    });
+  }
+
+  updateCart();
+}
+
+//update cart
+function updateCart() {
+  renderCartItems();
+  renderSubTotal();
+
+  //save to local storage
+  localStorage.setItem("CART", JSON.stringify(cart));
+}
+
+//RENDER SUBTOTAL AND CALCULATE
+
+function renderSubTotal() {
+  let totalPrice = 0,
+    totalItems = 0;
+
+  cart.forEach((item) => {
+    totalPrice += item.price * item.numberOfUnits;
+    totalItems += item.numberOfUnits;
+  });
+
+  subTotalEl.innerHTML = `<div class="title-purchases" id="title-purchases">
+    <h1>Subtotal(${totalItems} items): PHP ${totalPrice.toFixed(2)}</h1>
+</div>`;
+  totalItemsInCartEl.innerHTML = `<p>${totalItems}</p>`;
+}
 
 function renderCartItems() {
-    //clear cart duplicate element
-    itemListEl.innerHTML = "";
+  itemListEl.innerHTML = ""; //clear cart duplicate element
 
-    cart.forEach((item) => {
-        itemListEl.innerHTML += `
+  cart.forEach((item) => {
+    itemListEl.innerHTML += `
         <div class="item-list-container">
                     <div class="product-image">
                         <img src="${item.imgSrc}">
@@ -229,46 +212,36 @@ function renderCartItems() {
                     </div>
                 </div>
         `;
-    });
-};
+  });
+}
 
-//RENDER SUBTOTAL AND CALCULATE 
+//REMOVE ITEMS FROM CART
 
-function renderSubtotal() {
-    let totalPrice = 0,
-        totalItems = 0;
+function removeItemFromCart(id) {
+  cart = cart.filter((item) => item.id !== id);
 
-    cart.forEach((item) => {
-        totalPrice += item.price * item.numberOfUnits;
-        totalItems += item.numberOfUnits;
-    });
-
-    subTotalEl.innerHTML = `<div class="title-purchases" id="title-purchases">
-    <h1>Subtotal(${totalItems} items): PHP ${totalPrice.toFixed(2)}</h1>
-</div>`;
-    totalItemsInCartEl.innerHTML = `<p>${totalItems}</p>`;
-};
+  updateCart();
+}
 
 //CHANGE NUMBER OF UNITS
 
 function changeNumberofUnits(action, id) {
-    cart = cart.map((item) => {
+  cart = cart.map((item) => {
+    let numberOfUnits = item.numberOfUnits;
 
-        let numberOfUnits = item.numberOfUnits;
+    if (item.id === id) {
+      if (action === "minus" && numberOfUnits > 1) {
+        numberOfUnits--;
+      } else if (action === "plus" && numberOfUnits < item.instock) {
+        numberOfUnits++;
+      }
+    }
 
-        if (item.id === id) {
-            if (action === "minus" && numberOfUnits > 1) {
-                numberOfUnits--;
-            } else if (action === "plus" && numberOfUnits < item.instock) {
-                numberOfUnits++;
-            };
-        };
+    return {
+      ...item,
+      numberOfUnits,
+    };
+  });
 
-        return {
-            ...item,
-            numberOfUnits,
-        };
-    });
-
-    updateCart();
-};
+  updateCart();
+}
